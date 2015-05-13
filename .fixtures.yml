@@ -1,6 +1,6 @@
 fixtures:
   symlinks:
-    baseline: "#{source_dir}"
+    logcheck: "#{source_dir}"
   forge_modules:
     stdlib:
         repo: "puppetlabs/stdlib"

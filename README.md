@@ -4,7 +4,7 @@
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with Logcheck(#setup)
+3. [Setup - The basics of getting started with Logcheck](#setup)
     * [What Logcheck affects](#what-Logcheck-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with Logcheck](#beginning-with-Logcheck)
