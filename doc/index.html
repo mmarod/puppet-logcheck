@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="puppet_manifest_list_link"
+        href="puppet_manifest_list.html">
+      Puppet Manifest List
+    </a>
+  
+    <a class="full_list_link" id="puppet_plugin_list_link"
+        href="puppet_plugin_list.html">
+      Puppet Plugin List
+    </a>
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>Logcheck</h1>
+
+<h4>Table of Contents</h4>
+
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#module-description">Module Description - What the module does and why it is useful</a></li>
+<li>[Setup - The basics of getting started with Logcheck(#setup)
+
+<ul>
+<li><a href="#what-Logcheck-affects">What Logcheck affects</a></li>
+<li><a href="#setup-requirements">Setup requirements</a></li>
+<li><a href="#beginning-with-Logcheck">Beginning with Logcheck</a></li>
+</ul></li>
+<li><a href="#usage">Usage - Configuration options and additional functionality</a></li>
+<li><a href="#reference">Reference - An under-the-hood peek at what the module is doing and how</a></li>
+<li><a href="#limitations">Limitations - OS compatibility, etc.</a></li>
+<li><a href="#development">Development - Guide for contributing to the module</a></li>
+</ol>
+
+<h2>Overview</h2>
+
+<p>The Logcheck module installs and configures the Logcheck service.</p>
+
+<h2>Module Description</h2>
+
+<p>Logcheck is a simple utility which is designed to allow a system administrator to view
+the logfiles which are produced upon hosts under their control. It does this by
+mailing summaries of the logfiles to them, after first filtering out &quot;normal&quot; entries.
+Normal entries are entries which match one of the many included regular expression
+files contain in the database.</p>
+
+<p>This module installs and configures Logcheck.</p>
+
+<h2>Setup</h2>
+
+<h3>What Logcheck affects</h3>
+
+<ul>
+<li>No services should be affected by Logcheck</li>
+</ul>
+
+<h3>Setup requirements</h3>
+
+<ul>
+<li>Puppet-3.0.0 or later</li>
+</ul>
+
+<h3>Beginning with Logcheck</h3>
+
+<p>include &#39;logcheck&#39;</p>
+
+<h2>Usage</h2>
+
+<p>Use Hiera or directly define class variables</p>
+
+<h3>Hiera</h3>
+
+<p>Include the Class</p>
+
+<pre class="code puppet"><code class="puppet">include logcheck
+</code></pre>
+
+<p>Hiera Data</p>
+
+<pre class="code puppet"><code class="puppet">logcheck::config:
+    REPORTLEVEL: server
+    SENDMAILTO: logcheck@example.com
+    ADDTAG: yes
+</code></pre>
+
+<h3>Define variables explicitly</h3>
+
+<p>Include the Class</p>
+
+<pre class="code puppet"><code class="puppet">class { 'logcheck':
+    config =&gt; {
+        'REPORTLEVEL'   =&gt; 'server',
+        'SENDMAILTO'    =&gt; 'logcheck@example.com',
+        'ADDTAG'        =&gt; 'yes'
+    }
+}
+</code></pre>
+
+<h2>Reference</h2>
+
+<h3>Classes</h3>
+
+<h3>Public Classes</h3>
+
+<ul>
+<li><a href="#logcheck">logcheck</a>: The Logcheck class</li>
+</ul>
+
+<h3><code>logcheck</code></h3>
+
+<h4>Parameters</h4>
+
+<h3><code>logcheck::config</code></h3>
+
+<p>The changes to make to the logcheck configuration file. Augeas is used to implement
+the changes using the Shellvars lens.</p>
+
+<h3><code>logcheck::package</code></h3>
+
+<p>The name of the logcheck package. Defaults to &#39;logcheck&#39;</p>
+
+<h3><code>logcheck::configfile</code></h3>
+
+<p>The path to logcheck.conf. Default is /etc/logcheck/logcheck.conf</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Tue May 12 23:39:27 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
