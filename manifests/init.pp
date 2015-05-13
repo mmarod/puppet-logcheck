@@ -56,7 +56,7 @@ class logcheck (
         incl    => $::logcheck::configfile,
         lens    => 'Shellvars.lns',
         changes => $::logcheck::changes,
-        require => File[$::logcheck::configfile]
+        require => Package[$::logcheck::package]
     }
 
     create_resources('cron', $::logcheck::crons)
