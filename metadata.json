@@ -8,7 +8,7 @@
   "project_page": "http://github.com/mmarod/puppet-logcheck",
   "issues_url": "https://github.com/mmarod/puppet-logcheck/issues",
   "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">= 4.2.0}
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.2.0"}
   ],
   "requirements": [
     {
