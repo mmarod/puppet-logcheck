@@ -97,6 +97,26 @@ the changes using the Shellvars lens.
 
 The name of the logcheck package. Defaults to 'logcheck'
 
+### `logcheck::user`
+
+The name of the logcheck user. Defaults to 'logcheck'
+
 ### `logcheck::configfile`
 
 The path to logcheck.conf. Default is /etc/logcheck/logcheck.conf
+
+### `logcheck::crons`
+
+ A hash of crons to run logcheck. Default is:
+
+```
+'logcheck' => {
+        'command'   => 'if [ -x /usr/sbin/logcheck ]; then nice -n10 /usr/sbin/logcheck -R; fi',
+        'user'      => 'logcheck',
+        'minute'    => 2
+    }, 'logcheck-reboot' => {
+        'command'   => 'if [ -x /usr/sbin/logcheck ]; then nice -n10 /usr/sbin/logcheck -R; fi',
+        'user'      => 'logcheck',
+        'special'   => 'reboot'
+}
+```
